@@ -1,0 +1,14 @@
+# vscode
+.vscode/
+
+# make
+build/
+
+# cmake
+CMakeUserPresets.json
+
+# vcpkg
+vcpkg-configuration.json
+
+# clang-format
+.clang-format
