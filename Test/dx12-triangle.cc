@@ -22,9 +22,9 @@ using namespace DirectX;
 #include <dxgidebug.h>
 #endif
 
-#pragma comment(lib, "d3dcompiler.lib")
-#pragma comment(lib, "D3D12.lib")
-#pragma comment(lib, "dxgi.lib")
+// #pragma comment(lib, "d3dcompiler.lib")
+// #pragma comment(lib, "D3D12.lib")
+// #pragma comment(lib, "dxgi.lib")
 
 // cpp
 #include <exception>
@@ -379,9 +379,11 @@ int main(int argc, char *argv[])
         {
             while (::PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
             {
-                if (msg.message == WM_QUIT)
+                if (msg.message == WM_QUIT || msg.message == WM_CLOSE || msg.message == WM_DESTROY)
                 {
                     bExit = TRUE;
+                    //  CancelWaitableTimer(phWait);
+                    return 0;
                 }
                 TranslateMessage(&msg);
                 DispatchMessage(&msg);
@@ -392,4 +394,5 @@ int main(int argc, char *argv[])
             break;
         }
     };
+    return 0;
 }

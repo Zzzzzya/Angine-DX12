@@ -13,8 +13,9 @@ PSInput MainVS(float4 position : POSITION, float4 color : COLOR)
  
 	return result;
 }
- 
-float4 MainPS(PSInput input) : SV_TARGET
+
+void MainPS(PSInput input, out float4 color : SV_TARGET)
 {
-	return input.color;
+    color = input.color;
+    return;
 }
